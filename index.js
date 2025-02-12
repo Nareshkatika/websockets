@@ -3,7 +3,7 @@ import axios from "axios";
 
 const App = () => {
   const [store, setStore] = useState([]);
-  const [socketMessage, setSocketMessage] = useState(null);
+  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,7 +36,7 @@ const App = () => {
         )
       );
 
-      setSocketMessage(data);
+     
     };
 
     socket.onerror = () => {
@@ -65,12 +65,7 @@ const App = () => {
         </div>
       ))}
 
-      {socketMessage && (
-        <div style={{ marginTop: "20px", padding: "10px", border: "1px solid red" }}>
-          <h3>Live Update:</h3>
-          <p>Product ID: {socketMessage.productId} - New Stock: {socketMessage.newStock}</p>
-        </div>
-      )}
+      
     </div>
   );
 };
